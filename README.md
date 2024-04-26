@@ -3,7 +3,7 @@ Spanish:
 Plantopia es un Poyecto de un Sitio Web/App Movil E-commerce especializado en la venta de Productos para Plantas
 
 Sitio web:
-Desarrollado con React, permite explorar productos, gestionar pedidos y acceder a un panel de administración.
+Desarrollado con el Framework React, permite explorar productos, gestionar pedidos y acceder a un panel de administración y uno de Cliente.
 Interfaz moderna y fácil de usar.
 
 Aplicación móvil:
