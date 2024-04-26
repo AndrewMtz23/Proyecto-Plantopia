@@ -27,4 +27,3 @@ MySQL database:
 Stores product, user, order and system configuration information.
 
 
-Translated with DeepL.com (free version)
