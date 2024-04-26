@@ -1,0 +1,133 @@
+CREATE SCHEMA `server` ;
+
+CREATE TABLE `server`.`tusuarios` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `estatus` INT NOT NULL,
+  `tipo` INT NOT NULL,
+  `clave` VARCHAR(45) NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `fechaNacimiento` VARCHAR(10) NOT NULL,
+  `genero` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(10) NOT NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `domicilio` VARCHAR(450) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `server`.`tsucursales` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `estatus` INT NOT NULL,
+  `gerente` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(10) NOT NULL,
+  `direccion` VARCHAR(450) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `server`.`tproveedores` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `estatus` INT NOT NULL,
+  `marca` VARCHAR(45) NOT NULL,
+  `representante` VARCHAR(45) NOT NULL,
+  `telefono` VARCHAR(10) NOT NULL,
+  `correo` VARCHAR(45) NOT NULL,
+  `direccion` VARCHAR(450) NOT NULL,
+  `fechaContrato` VARCHAR(10) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `server`.`tproductos` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `estatus` INT NOT NULL,
+  `nombre` VARCHAR(45) NOT NULL,
+  `detalles` VARCHAR(450) NOT NULL,
+  `categoria` VARCHAR(45) NOT NULL,
+  `precioCompra` DOUBLE NOT NULL,
+  `precioVenta` DOUBLE NOT NULL,
+  `imagen` VARCHAR(450) NOT NULL,
+  PRIMARY KEY (`id`));
+
+CREATE TABLE `server`.`tinventario` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `estatus` INT NOT NULL,
+  `sucursal` INT NOT NULL,
+  `proveedor` INT NOT NULL,
+  `producto` INT NOT NULL,
+  `cantidad` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `sucursal_idx` (`sucursal` ASC) VISIBLE,
+  INDEX `proveedor_idx` (`proveedor` ASC) VISIBLE,
+  INDEX `producto_idx` (`producto` ASC) VISIBLE,
+  CONSTRAINT `sucursal`
+    FOREIGN KEY (`sucursal`)
+    REFERENCES `server`.`tsucursales` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `proveedor`
+    FOREIGN KEY (`proveedor`)
+    REFERENCES `server`.`tproveedores` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `producto`
+    FOREIGN KEY (`producto`)
+    REFERENCES `server`.`tproductos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `server`.`tpedido` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `inventario` INT NOT NULL,
+  `usuario` INT NOT NULL,
+  `cantidad` INT NOT NULL,
+  `subtotal` DOUBLE NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `inventario_idx` (`inventario` ASC) VISIBLE,
+  INDEX `usuario_idx` (`usuario` ASC) VISIBLE,
+  CONSTRAINT `inventario`
+    FOREIGN KEY (`inventario`)
+    REFERENCES `server`.`tinventario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+    CONSTRAINT `usuario`
+    FOREIGN KEY (`usuario`)
+    REFERENCES `server`.`tusuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+    
+    CREATE TABLE `server`.`tlista` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `inventario` INT NOT NULL,
+  `usuario` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `idUsuario_idx` (`usuario` ASC) VISIBLE,
+  INDEX `idInventario_idx` (`inventario` ASC) VISIBLE,
+  CONSTRAINT `idInventario`
+    FOREIGN KEY (`inventario`)
+    REFERENCES `server`.`tinventario` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idUsuario`
+    FOREIGN KEY (`usuario`)
+    REFERENCES `server`.`tusuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+CREATE TABLE `server`.`tventas` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `usuario` INT NOT NULL,
+  `producto` INT NOT NULL,
+  `cantidad` INT NOT NULL,
+  `total` DOUBLE NOT NULL,
+  `fechaRegistro` timestamp DEFAULT current_timestamp,
+  PRIMARY KEY (`id`),
+  INDEX `id_usuario_idx` (`usuario` ASC) VISIBLE,
+  CONSTRAINT `idCliente`
+    FOREIGN KEY (`usuario`)
+    REFERENCES `server`.`tusuarios` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `idProducto`
+    FOREIGN KEY (`producto`)
+    REFERENCES `server`.`tproductos` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+INSERT INTO `server`.`tusuarios` (`estatus`, `tipo`, `clave`, `nombre`, `fechaNacimiento`, `genero`, `telefono`, `correo`, `domicilio`) 
+VALUES (1, 1, '1234', 'admin', '18-12-12', 'MASCULINO', '4421781565', 'admin@gmail.com', 'UTEQ');
