@@ -4,7 +4,7 @@ Plantopia es un Poyecto de un Sitio Web/App Movil E-commerce especializado en la
 
 Sitio web:
 Desarrollado con el Framework React, permite explorar productos, gestionar pedidos y acceder a un panel de administración y uno de Cliente.
-Interfaz moderna y fácil de usar.
+Interfaz moderna y fácil de usar, ademas de una Api vinculada a la Aplicacion Movil.
 
 Aplicación móvil:
 Desarrollada en Flutter y Dart, simula el proceso de compra, ofrece un catálogo, una lista de deseos, un carrito y un menu del Usuario.
