@@ -1,5 +1,4 @@
 # Project-Plantopia
-English:
 Plantopia is a Website/Mobile App E-commerce Project specialized in the sale of Plant Products.
 
 Website:
@@ -13,7 +12,6 @@ MySQL database:
 Stores product information, users, orders and system configurations.
 __________________________________________________________________________________________________________________________________________
 
-Spanish:
 Plantopia es un Poyecto de un Sitio Web/App Movil E-commerce especializado en la venta de Productos para Plantas
 
 Sitio web:
