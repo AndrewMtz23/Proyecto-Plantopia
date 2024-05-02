@@ -1,4 +1,4 @@
-# Project-Plantopia
+# Project-Plantopia 🌱
 Plantopia is a Website/Mobile App E-commerce Project specialized in the sale of Plant Products.
 
 Website:
