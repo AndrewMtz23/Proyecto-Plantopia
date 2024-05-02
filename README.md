@@ -1,4 +1,18 @@
 # Project-Plantopia
+English:
+Plantopia is a Website/Mobile App E-commerce Project specialized in the sale of Plant Products.
+
+Website:
+Developed with the React Framework, it allows to browse products, manage orders and access to an administration panel and a Customer panel.
+Modern and easy to use interface, plus an Api linked to the Mobile App.
+
+Mobile Application:
+Developed in Flutter and Dart, it simulates the shopping process, offers a catalog, a wish list, a cart and a User menu.
+
+MySQL database:
+Stores product information, users, orders and system configurations.
+__________________________________________________________________________________________________________________________________________
+
 Spanish:
 Plantopia es un Poyecto de un Sitio Web/App Movil E-commerce especializado en la venta de Productos para Plantas
 
@@ -11,19 +25,6 @@ Desarrollada en Flutter y Dart, simula el proceso de compra, ofrece un catálogo
 
 Base de datos MySQL:
 Almacena información de productos, usuarios, pedidos y configuraciones del sistema.
-__________________________________________________________________________________________________________________________________________
 
-English:
-Plantopia is a Website/Mobile App E-commerce Project specialized in the sale of Plant Products.
-
-Website:
-Developed with React, it allows you to browse products, manage orders and access an administration panel.
-Modern and easy to use interface.
-
-Mobile application:
-Developed in Flutter and Dart, it simulates the purchase process, offers a catalog, a wish list, a cart and a User menu.
-
-MySQL database:
-Stores product, user, order and system configuration information.
 
 
